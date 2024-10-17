@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 
 # Set your OpenAI API key
-openai.api_key = "YOUR_OPENAI_API_KEY"  # Replace with your actual API key
+openai.api_key = "YOUR_OPENAI_API_KEY"  # Replace with your actual OpenAI API key
 
 # Function to get responses from OpenAI's GPT-3 or GPT-4
 def get_response(user_input):
@@ -12,7 +12,7 @@ def get_response(user_input):
 
         # Get the response from the model
         response = openai.Completion.create(
-            engine="text-davinci-003", # You can also use "gpt-3.5-turbo" or "gpt-4" if available
+            engine="text-davinci-003", # Alternatively, use "gpt-3.5-turbo" or "gpt-4" if available
             prompt=prompt,
             max_tokens=150,
             temperature=0.7,
@@ -26,17 +26,17 @@ def get_response(user_input):
 st.title("Islamic Banking Chatbot")
 st.write("Ask me anything about Islamic banking!")
 
-# Get user input
-user_input = st.text_input("Your question:")
+# Input text box for user query
+user_input = st.text_input("Enter your question:")
 
-# If user input is provided, get the response from the chatbot
+# If the user input is provided, display the response from the chatbot
 if user_input:
     response = get_response(user_input)
-    st.write("Chatbot Response:")
+    st.write("### Chatbot Response:")
     st.write(response)
 
-# Examples section to guide the user
-st.write("### Examples:")
+# Add an examples section to guide users on what to ask
+st.write("### Example Questions:")
 st.write("- What is Islamic banking?")
 st.write("- Explain the concept of Murabaha.")
 st.write("- What is the difference between Riba and profit?")
