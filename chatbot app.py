@@ -1,4 +1,3 @@
-%%writefile app.py
 import openai
 import streamlit as st
 
